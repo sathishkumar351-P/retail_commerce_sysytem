@@ -11,11 +11,11 @@ public class Administrator {
 
     private RetailDAO dao = new RetailDAO();
 
-    // ================= ADD RECORD =================
+
     public String addRecord(RetailBean bean) {
 
         try {
-            // Basic validation
+           
             if (bean == null ||
                 bean.getCustomerName() == null ||
                 bean.getPurchaseDate() == null) {
@@ -30,12 +30,11 @@ public class Administrator {
                 return "INVALID PURCHASE DETAILS";
             }
 
-            // Check duplicate record
             if (dao.recordExists(bean.getCustomerName(), bean.getPurchaseDate())) {
                 return "ALREADY EXISTS";
             }
 
-            // ✅ DAO will generate RECORDID
+            
             return dao.createRecord(bean);
 
         } catch (InvalidInputException e) {
@@ -43,13 +42,14 @@ public class Administrator {
         }
     }
 
-    // ================= VIEW SINGLE RECORD =================
+    
     public RetailBean viewRecord(String customerName, Date date) {
         return dao.fetchRecord(customerName, date);
     }
 
-    // ================= VIEW ALL RECORDS =================
+ 
     public List<RetailBean> viewAllRecords() {
         return dao.fetchAllRecords();
     }
 }
+
