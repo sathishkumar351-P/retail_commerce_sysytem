@@ -2,9 +2,7 @@ package com.wipro.retail.util;
 
 public class InvalidInputException extends Exception {
 
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public InvalidInputException() {
@@ -16,3 +14,4 @@ public class InvalidInputException extends Exception {
         return "Invalid Input";
     }
 }
+
