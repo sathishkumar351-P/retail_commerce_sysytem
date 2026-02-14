@@ -11,14 +11,14 @@ import com.wipro.retail.util.DBUtil;
 
 public class RetailDAO {
 
-    // ================= CREATE RECORD =================
+   
     public String createRecord(RetailBean bean) {
         String status = "FAIL";
 
         try {
             Connection con = DBUtil.getDBConnection();
 
-            // ✅ Generate RECORDID (MANDATORY)
+           
             String recordId = generateRecordID1(
                     bean.getCustomerName(),
                     bean.getPurchaseDate()
@@ -51,7 +51,7 @@ public class RetailDAO {
         return status;
     }
 
-    // ================= CHECK IF RECORD EXISTS =================
+    
     public boolean recordExists(String customerName, Date date) {
         boolean flag = false;
 
@@ -75,7 +75,7 @@ public class RetailDAO {
         return flag;
     }
 
-    // ================= GENERATE RECORD ID =================
+
     public String generateRecordID1(String customerName, Date date) {
         String id = "";
 
@@ -106,7 +106,7 @@ public class RetailDAO {
         return id;
     }
 
-    // ================= FETCH SINGLE RECORD =================
+    
     public RetailBean fetchRecord(String customerName, Date date) {
         RetailBean bean = null;
 
@@ -138,7 +138,7 @@ public class RetailDAO {
         return bean;
     }
 
-    // ================= FETCH ALL RECORDS =================
+ 
     public List<RetailBean> fetchAllRecords() {
         List<RetailBean> list = new ArrayList<>();
 
@@ -165,3 +165,4 @@ public class RetailDAO {
         return list;
     }
 }
+
